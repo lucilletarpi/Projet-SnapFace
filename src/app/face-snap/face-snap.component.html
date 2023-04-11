@@ -1,0 +1,20 @@
+<div class="face-snap-card" [ngClass]="{ snapped: buttonText == 'Oops, unSnap!' }">
+  <!-- string interpolation est une méthode pour afficher le contenue de la variable en mettant le nom de la variable entre double accolades. -->
+
+<h2>{{ faceSnap.title | titlecase}}</h2>
+
+<!-- Pour les images nous aurions pu utiliser la synthaxe suivante
+<img src="{{ imageUrl }}" alt="{{ title }}">
+elle fontionne puisque les valeurs d' imageUrl et title sont des strings mais ce n'est pas toujours le cas il est donc préférable de mettre des crochets aux attributs HTML  -->
+
+<img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+<p>{{faceSnap.description}}</p>
+<!-- Nous utilisions *ngIf qui donne en affichage conditionnel sur le p si il y a une location affiche la -->
+<p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}</p>
+<p>
+  <!-- Nous voulons rendre dynamique le nombre de snap lier les évenements il faut utiliser des parenthéres sur l'attributs click on click l'attribut appel la méthode onAddSnap -->
+  <button (click)="onSnap()">{{buttonText}}</button>
+  <span [ngStyle]="{ color: 'rgb(0,'+ faceSnap.snaps +',0)'}"> 🤞{{faceSnap.snaps}}</span>
+</p>
+  <p>Mise en ligne le {{faceSnap.createdDate}}</p>
+</div>
