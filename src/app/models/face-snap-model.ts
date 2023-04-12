@@ -37,6 +37,7 @@
 // On peut aussi pour avoir une classe plus simple faire comme ci-dessous:
 
 export class faceSnap {
+  id!: number;
   title!: string;
   description!: string;
   createdDate!: Date;

@@ -17,6 +17,6 @@ export class FaceSnapListComponent implements OnInit {
 
     // données sous forme de tableau
 
-    this.faceSnaps = this.faceSnapsService.faceSnaps;
+    this.faceSnaps = this.faceSnapsService.getAllFaceSnpas();
 }
 }

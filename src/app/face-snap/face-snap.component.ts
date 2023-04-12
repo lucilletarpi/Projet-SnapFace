@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 // on import OnInit depuis Angular
 import { faceSnap } from '../models/face-snap-model';
+import { FaceSnapsService } from '../services/face-snaps.service';
 @Component({
   selector: 'app-face-snap',
   templateUrl: './face-snap.component.html',
@@ -21,6 +22,10 @@ export class FaceSnapComponent implements OnInit {
   // snaps!: number;
   // imageUrl!: string;
   buttonText!: string;
+
+  constructor(private faceSnapsService: FaceSnapsService) {
+
+  }
 // La méthode ci dessous est appélé par Angular pour initialisé les propriétés
 
   ngOnInit() {
@@ -38,12 +43,12 @@ onSnap(){
 // Pour rendre dynamique le bouton lorsque l'utilisateur cela rajouter +1 puis enlever -1 s'il reclick
 // si le texte du bouton est Oh Snap! alors +1 plus changement du texte
 if (this.buttonText === "Oh Snap!") {
-  this.faceSnap.snaps++;
+  this.faceSnapsService.snapFaceById(this.faceSnap.id, 'snap')
   this.buttonText = "Oops, unSnap!"
 }
 // aussinon -1 plus changement du texte
 else {
-  this.faceSnap.snaps--;
+  this.faceSnapsService.snapFaceById(this.faceSnap.id, 'unsnap')
   this.buttonText = "Oh Snap!"
 }
 }
