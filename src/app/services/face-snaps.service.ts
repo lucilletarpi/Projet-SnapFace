@@ -7,7 +7,7 @@ import { faceSnap } from "../models/face-snap-model";
 export class FaceSnapsService{
   faceSnaps: faceSnap[] = [
     {
-      id:1,
+      id: 1 ,
       title:"Lucille",
       description:"Moi",
       createdDate: new Date(),
@@ -16,7 +16,7 @@ export class FaceSnapsService{
       location: 'Nice'
     },
     {
-      id:2,
+      id: 2 ,
       title:"Nino",
       description:"Mon bébé",
       createdDate: new Date(),

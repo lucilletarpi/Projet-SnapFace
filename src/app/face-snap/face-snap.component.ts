@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 // on import OnInit depuis Angular
 import { faceSnap } from '../models/face-snap-model';
 import { FaceSnapsService } from '../services/face-snaps.service';
+import { Router  } from '@angular/router';
 @Component({
   selector: 'app-face-snap',
   templateUrl: './face-snap.component.html',
@@ -23,7 +24,8 @@ export class FaceSnapComponent implements OnInit {
   // imageUrl!: string;
   buttonText!: string;
 
-  constructor(private faceSnapsService: FaceSnapsService) {
+  constructor(private faceSnapsService: FaceSnapsService,
+              private router: Router) {
 
   }
 // La méthode ci dessous est appélé par Angular pour initialisé les propriétés
@@ -53,5 +55,7 @@ else {
 }
 }
 
-
+onViewFaceSnap() {
+  this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`)
+}
 }
